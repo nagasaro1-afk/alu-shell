@@ -1,21 +1,2 @@
 #!/bin/bash
-python3 << 'PYEOF'
-import os
-w = "water"
-s = "stir."
-b = "bestchol"
-W = os.environ["WATER"]
-S = os.environ["STIR"]
-n = 0
-for c in W:
-    n = n * 5 + w.index(c)
-m = 0
-for c in S:
-    m = m * 5 + s.index(c)
-t = n + m
-r = ""
-while t:
-    r = b[t % 8] + r
-    t //= 8
-print(r or b[0])
-PYEOF
+python3 -c "exec('import os\nw=\"water\"\ns=\"stir.\"\nb=\"bestchol\"\nW=os.environ[\"WATER\"]\nS=os.environ[\"STIR\"]\nn=0\nfor c in W:n=n*5+w.index(c)\nm=0\nfor c in S:m=m*5+s.index(c)\nn=n+m\nr=\"\"\nwhile n:\n r=b[n%8]+r\n n//=8\nprint(r or b[0])')"
