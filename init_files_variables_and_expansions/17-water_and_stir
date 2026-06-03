@@ -1,2 +1,21 @@
 #!/bin/bash
-echo $(echo "obase=6;ibase=5;$(echo $WATER | tr 'water' '01234') + $(echo $STIR | tr 'stir.' '01234')" | bc) | tr '012345' 'bestchol'
+python3 << 'PYEOF'
+import os
+w = "water"
+s = "stir."
+b = "bestchol"
+W = os.environ["WATER"]
+S = os.environ["STIR"]
+n = 0
+for c in W:
+    n = n * 5 + w.index(c)
+m = 0
+for c in S:
+    m = m * 5 + s.index(c)
+t = n + m
+r = ""
+while t:
+    r = b[t % 8] + r
+    t //= 8
+print(r or b[0])
+PYEOF
