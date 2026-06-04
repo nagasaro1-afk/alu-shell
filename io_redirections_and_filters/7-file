@@ -1,2 +1,3 @@
 #!/bin/bash
-echo "Best School" > \\\*\\\\\'"Best School"\'\\\\\*\$\?\*\*\*\*\*:\)
+# Creates a file with a special name containing Best School
+echo "Best School" > \\\*\\\\"'"Best School"\'\\\\*\$\?\*\*\*\*\*:)
